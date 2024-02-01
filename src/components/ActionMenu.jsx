@@ -16,18 +16,18 @@ const ActionMenu = () => {
   };
 
   return (
-    <Fab
-      mainButtonStyles={{ backgroundColor: '#25D366' }}
-      position={{ bottom: 20, right: 20 }}
-      icon={<ChatIcon style={{ color: 'white' }} />}
-    >
+      <Fab
+        mainButtonStyles={{ backgroundColor: '#25D366' }}
+        position={{ bottom: 20, right: 20 }}
+        icon={<ChatIcon style={{ color: 'white' }} />}
+      >
      <Action
-  style={{ backgroundColor: '#25D366' }}
-  text="WhatsApp"
-  onClick={() => handleAction('YourWhatsAppLinkHere', true)}
->
-  <WhatsAppIcon style={{ color: 'white' }} />
-</Action>
+        style={{ backgroundColor: '#25D366' }}
+        text="WhatsApp"
+        onClick={() => handleAction('YourWhatsAppLinkHere', true)}
+      >
+        <WhatsAppIcon style={{ color: 'white' }} />
+      </Action>
       <Action
         style={{ backgroundColor: '#0e76a8' }}
         text="LinkedIn"

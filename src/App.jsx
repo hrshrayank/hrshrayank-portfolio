@@ -8,6 +8,7 @@ import Project from './components/Project';
 import ContactMe from './components/ContactMe';
 import Footer from './components/Footer';
 import ActionMenu from './components/ActionMenu';
+import './App.css'
 
 function App() {
   return (
