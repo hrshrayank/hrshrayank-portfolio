@@ -34,23 +34,25 @@ const AboutMe = () => {
                     </Typography>
                     {/* Add more paragraphs as needed based on your resume */}
                     
-                    <Button 
-                        variant="contained" 
-                        sx={{ bgcolor: '#0788ff', mt: 4 }}
-                        href="https://drive.google.com/file/d/1GfrnsHZadG_UOJ7TNEvdWgtveENU-NB4/view?usp=drive_link" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                    >
-                        View Resume
-                    </Button>
-                    <Button 
-                        variant="contained" 
-                        sx={{ bgcolor: '#0788ff', mt: 4, ml:2 }}
-                        href="https://drive.google.com/uc?export=download&id=1GfrnsHZadG_UOJ7TNEvdWgtveENU-NB4" 
-                        download="H_R_Shrayank_Resume.pdf"
-                    >
-                        Download Resume
-                    </Button>
+                    <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4, flexWrap: 'no-wrap', gap: 2 }}>
+    <Button 
+      variant="contained" 
+      sx={{ bgcolor: '#0788ff',fontSize: { xs: '0.7rem', sm: '0.875rem', md: '0.8rem' },  }}
+      href="https://drive.google.com/file/d/1GfrnsHZadG_UOJ7TNEvdWgtveENU-NB4/view?usp=drive_link" 
+      target="_blank" 
+      rel="noopener noreferrer"
+    >
+      View Resume
+    </Button>
+    <Button 
+      variant="contained" 
+      sx={{ bgcolor: '#0788ff',fontSize: { xs: '0.7rem', sm: '0.875rem', md: '0.8rem' },  }}
+      href="https://drive.google.com/uc?export=download&id=1GfrnsHZadG_UOJ7TNEvdWgtveENU-NB4" 
+      download="H_R_Shrayank_Resume.pdf"
+    >
+      Download Resume
+    </Button>
+  </Box>
                 </Grid>
             </Grid>
         </Box>
