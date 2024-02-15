@@ -1,201 +1,137 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Box, Typography, Button, Grid, Card,IconButton, CardContent, CardActions, CardMedia, Dialog, DialogContent } from '@mui/material';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LanguageIcon from '@mui/icons-material/Language';
+import ArticleIcon from '@mui/icons-material/Article'; 
+import Project1 from '../assets/Projects/Project1/Project1.png';
+import Project2 from '../assets/Projects/Project2/Project2.png';  
+import Project3 from '../assets/Projects/Project3/Project3.png';  
+import Project4 from '../assets/Projects/Project4/Project4.png';
 
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import CloseIcon from '@mui/icons-material/Close';
 
 const projects = [
     {
-      title: 'E-commerce Website',
-      description: 'An e-commerce platform with a responsive design and secure payment integration.',
-      image: 'https://via.placeholder.com/300.png?text=Project+1',
-      githubUrl: 'https://github.com/yourusername/ecommerce-website',
-      liveDemoUrl: 'http://ecommercewebsite.com',
-      additionalImages: [] // No additional images
-    },
-    {
       title: 'Portfolio Website',
       description: 'A personal portfolio website to showcase development projects and skills.',
-      image: 'https://via.placeholder.com/300.png?text=Project+2',
-      githubUrl: 'https://github.com/yourusername/portfolio-website',
-      liveDemoUrl: 'http://portfoliowebsite.com',
-      additionalImages: [] // No additional images
+      image: Project1,
+      githubUrl: 'https://github.com/hrshrayank/hrshrayank-portfolio',
+      liveDemoUrl: 'https://shrayank.com/',
+      blogUrl: '#', 
+      skills: [
+        { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+        { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+        { name: 'HTML5', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+        { name: 'CSS3', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+        { name: 'Material-UI', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg' },
+      ],
     },
     {
-      title: 'Social Media Dashboard',
-      description: 'A dashboard for visualizing social media metrics with real-time data analytics.',
-      image: 'https://via.placeholder.com/300.png?text=Project+3',
-      githubUrl: 'https://github.com/yourusername/social-media-dashboard',
-      liveDemoUrl: 'http://socialmediadashboard.com',
-      additionalImages: [ // Multiple images
-        'https://via.placeholder.com/300.png?text=Project+3+Image+2',
-        'https://via.placeholder.com/300.png?text=Project+3+Image+3',
-        'https://via.placeholder.com/300.png?text=Project+3+Image+4'
-      ]
+      title: 'Global Dock',
+      description: 'Global Dock is a export import company website.',
+      image: Project2,
+      githubUrl: 'https://github.com/hrshrayank/Global-Dock',
+      liveDemoUrl: 'https://globaldock.netlify.app/',
+      blogUrl: '#', 
+      skills: [
+        { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+        { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+        { name: 'HTML5', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+        { name: 'CSS3', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+        { name: 'Material-UI', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg' },
+      ],
     },
     {
-      title: 'Task Management Tool',
-      description: 'A tool to manage tasks effectively with collaboration features for teams.',
-      image: 'https://via.placeholder.com/300.png?text=Project+4',
-      githubUrl: 'https://github.com/yourusername/task-management-tool',
-      liveDemoUrl: 'http://taskmanagementtool.com',
-      additionalImages: [] // No additional images
+      title: 'Boat Website',
+      description: `Boat is India's Audio Company website.`,
+      image: Project3,
+      githubUrl: 'https://github.com/hrshrayank/Boat-Clone',
+      liveDemoUrl: 'https://boat-clone.vercel.app/',
+      blogUrl: 'https://hrshrayank.medium.com/boat-clone-collab-project-in-3-days-aeea867a87e7', 
+      skills: [
+        { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+        { name: 'HTML5', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+        { name: 'CSS3', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+      ],
+    },
+    {
+      title: 'CNN News Clone',
+      description: 'CNN is International news website.We have tried implementing searching of news ,images change on the click and filtering,changing languages .',
+      image: Project4,
+      githubUrl: 'https://github.com/MaheshFSD/ethane',
+      liveDemoUrl: 'https://cnn-clone-web.netlify.app/',
+      blogUrl: '#', 
+      skills: [
+        { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+        { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+        { name: 'Redux', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg' },
+        { name: 'HTML5', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+        { name: 'CSS3', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+        { name: 'Material-UI', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg' },
+      ],
     }
   ];
-  
-  const ProjectDetailDialog = ({ project, open, onClose }) => {
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    const images = [project.image, ...project.additionalImages];
-  
-    const handleNextImage = () => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    };
-  
-    const handlePrevImage = () => {
-      setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-    };
-  
-  
+  const Project = () => {
     return (
-        <Dialog open={open} onClose={onClose} maxWidth="lg" fullWidth>
-        <DialogContent sx={{ minHeight: '60vh', position: 'relative', overflow: 'hidden' }}>
-          <IconButton onClick={onClose} sx={{ position: 'absolute', right: 8, top: 8, zIndex: 1 }}>
-            <CloseIcon />
-          </IconButton>
-          <IconButton
-            onClick={handlePrevImage}
-            disabled={images.length <= 1}
-            sx={{
-              position: 'absolute',
-              left: 16,
-              top: '50%',
-              transform: 'translateY(-50%)',
-              zIndex: 1,
-              color: 'white',
-            }}
-          >
-            <ArrowBackIosIcon />
-          </IconButton>
-          <IconButton
-            onClick={handleNextImage}
-            disabled={images.length <= 1}
-            sx={{
-              position: 'absolute',
-              right: 16,
-              top: '50%',
-              transform: 'translateY(-50%)',
-              zIndex: 1,
-              color: 'white',
-            }}
-          >
-            <ArrowForwardIosIcon />
-          </IconButton>
-          <Grid container spacing={2}>
-            <Grid item xs={12} md={6}>
-              <img
-                src={images[currentImageIndex]}
-                alt={project.title}
-                style={{ width: '100%', height: 'auto', borderRadius: '10px' }}
-              />
+      <Box sx={{ bgcolor: '#051e37', color: 'white', py: 8, px: 4, overflowX: 'auto' }}>
+        <Typography variant="subtitle1" gutterBottom align="center" sx={{ bgcolor: '#063d70', display: 'inline-block', px: 2 }}>
+          MY WORK
+        </Typography>
+        <Typography variant="h3" gutterBottom sx={{ color: 'white', mt: 2, mb: 4 }}>
+          <Box component="span" sx={{ color: 'white' }}>RECENT </Box>
+          <Box component="span" sx={{ color: '#0788ff', px: 1 }}>PROJECTS</Box>
+        </Typography>
+        <Grid container spacing={4} sx={{ justifyContent: 'start',pr: 2  }}>
+          {projects.map((project, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
+              <Card sx={{ bgcolor: 'white', height: '100%', display: 'inline-block', minWidth: '300px' }}>
+                <CardMedia
+                  component="img"
+                  image={project.image}
+                  alt={project.title}
+                  sx={{ maxHeight: 200, objectFit: 'cover' }}
+                />
+                <CardContent>
+                  <Typography variant="h5" component="div" gutterBottom sx={{ textAlign: 'center' }}>
+                    {project.title}
+                  </Typography>
+                  <Typography variant="body2">
+                    {project.description}
+                  </Typography>
+                  <Box sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 2, mt: 2 }}>
+                    {project.skills.map((skill, skillIndex) => (
+                      <img key={skillIndex} src={skill.logo} alt={skill.name} style={{ height: '25px' }} />
+                    ))}
+                  </Box>
+                </CardContent>
+                <CardActions disableSpacing sx={{ justifyContent: 'center', paddingBottom: 2 }}>
+                  <Button href={project.githubUrl} target="_blank" startIcon={<GitHubIcon />} sx={{ color: 'black', '&:hover': { backgroundColor: 'white' } }}>
+                    GitHub
+                  </Button>
+                  <Button href={project.liveDemoUrl} target="_blank" startIcon={<LanguageIcon />} sx={{ color: 'black', '&:hover': { backgroundColor: 'white' } }}>
+                    Website
+                  </Button>
+                  <Button href={project.blogUrl} target="_blank" startIcon={<ArticleIcon />} sx={{ color: 'black', '&:hover': { backgroundColor: 'white' } }}>
+                    Blog
+                  </Button>
+                </CardActions>
+              </Card>
             </Grid>
-            <Grid item xs={12} md={6}>
-              <Typography variant="h5" sx={{ mb: 2 }}>
-                {project.title}
-              </Typography>
-              <Typography variant="body1" sx={{ mb: 2 }}>
-                {project.description}
-              </Typography>
-              {/* Add more fields as per your design */}
-              <Typography variant="body2"><strong>Type:</strong> Website</Typography>
-              <Typography variant="body2"><strong>Languages:</strong> PHP, HTML, CSS, JS</Typography>
-              <Typography variant="body2"><strong>Platform:</strong> WordPress</Typography>
-              <Typography variant="body2"><strong>Country:</strong> USA</Typography>
-              <Button variant="contained" color="primary" sx={{ mt: 2 }}>
-                Visit Live Site
-              </Button>
-            </Grid>
-          </Grid>
-        </DialogContent>
-      </Dialog>
+          ))}
+         <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Button
+            href="https://github.com/hrshrayank"
+            target="_blank"
+            variant="contained"
+            sx={{ color: 'white', backgroundColor:'#063d70', '&:hover': { backgroundColor: '#063d70' } }}
+            startIcon={<GitHubIcon />}
+          >
+            See More
+          </Button>
+        </Grid>
+              
+        </Grid>
+      </Box>
     );
   };
-const Project = () => {
-    const [selectedProject, setSelectedProject] = useState(null);
-    const [openDialog, setOpenDialog] = useState(false);
-
-    const handleOpenDialog = (project) => {
-        setSelectedProject(project);
-        setOpenDialog(true);
-    };
-
-    const handleCloseDialog = () => {
-        setOpenDialog(false);
-    };
-    return (
-        <Box sx={{ bgcolor: '#051e37', color: 'white', py: 8, px: 4 }}>
-             <Typography variant="subtitle1" gutterBottom align="center" sx={{ bgcolor: '#063d70', display: 'inline-block', px: 2 }}>
-                MY WORK
-            </Typography>
-            <Typography variant="h3" gutterBottom sx={{ color: 'white', mt: 2, mb: 4}}>
-                <Box component="span" sx={{ color: 'white' }}>RECENT </Box>
-                <Box component="span" sx={{ color: '#0788ff', px: 1 }}>PROJECT</Box>
-            </Typography>
-            <Grid container spacing={4}>
-                {projects.map((project, index) => (
-                    <Grid item xs={12} sm={6} md={4} key={index}>
-                        <Card sx={{ bgcolor: 'white', height: '100%' }}>
-                            <CardMedia
-                                component="img"
-                                image={project.image}
-                                alt={project.title}
-                                sx={{ maxHeight: 200, objectFit: 'cover' }}
-                            />
-                            <CardContent>
-                                <Typography variant="h5" component="div" gutterBottom>
-                                    {project.title}
-                                </Typography>
-                                <Typography variant="body2">
-                                    {project.description}
-                                </Typography>
-                            </CardContent>
-                            <CardActions disableSpacing sx={{ justifyContent: 'flex-end', pr: 2 }}>
-                                <Button 
-                                    size="small" 
-                                    onClick={() => handleOpenDialog(project)}
-                                    sx={{
-                                        borderRadius: '50%',
-                                        minWidth: '48px',
-                                        height: '48px',
-                                        backgroundColor: '#098af6',
-                                        color: 'white',
-                                        border: '2px solid black',
-                                        '&:hover': {
-                                            backgroundColor: '#062c4c',
-                                        }
-                                    }}
-                                >
-                                    <ArrowForwardIosIcon />
-                                </Button>
-                            </CardActions>
-
-                        </Card>
-                    </Grid>
-                ))}
-            </Grid>
-            {selectedProject && (
-                <ProjectDetailDialog
-                    project={selectedProject}
-                    open={openDialog}
-                    onClose={handleCloseDialog}
-                />
-            )}
-            {/* Pagination Dots */}
-            <Box sx={{ textAlign: 'center', mt: 4 }}>
-                {/* ... Your pagination component or dots ... */}
-            </Box>
-        </Box>
-    );
-};
 
 export default Project;

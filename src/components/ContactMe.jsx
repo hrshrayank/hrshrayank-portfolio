@@ -112,19 +112,19 @@ const ContactMe = () => {
                         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                             <Box sx={{ display: 'flex', '& > *': { m: 1 } }}>
                                 
-                                <Link href="https://twitter.com/yourtwitterhandle" target="_blank" rel="noopener noreferrer" color="inherit" underline="none">
+                                <Link href="https://twitter.com/hrshrayank77" target="_blank" rel="noopener noreferrer" color="inherit" underline="none">
                                     <IconButton aria-label="twitter" sx={{ color: 'white' }}>
                                         <TwitterIcon />
                                     </IconButton>
                                 </Link>
 
-                                <Link href="https://github.com/yourgithubusername" target="_blank" rel="noopener noreferrer" color="inherit" underline="none">
+                                <Link href="https://github.com/hrshrayank" target="_blank" rel="noopener noreferrer" color="inherit" underline="none">
                                     <IconButton aria-label="github" sx={{ color: 'white' }}>
                                         <GitHubIcon />
                                     </IconButton>
                                 </Link>
 
-                                <Link href="https://www.linkedin.com/in/yourlinkedinprofile" target="_blank" rel="noopener noreferrer" color="inherit" underline="none">
+                                <Link href="https://in.linkedin.com/in/hrshrayank" target="_blank" rel="noopener noreferrer" color="inherit" underline="none">
                                     <IconButton aria-label="linkedin" sx={{ color: 'white' }}>
                                         <LinkedInIcon />
                                     </IconButton>

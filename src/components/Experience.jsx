@@ -5,23 +5,31 @@ const experiences = [
     {
         title: 'Software Engineer',
         company: 'Qualitest Infotech Private Limited',
-        duration: 'June 2020 - Present',
-        description: 'Engaged in front-end development, focusing on React. Contributed to the NSA Insights and Analytics project, emphasizing feature development, design integration, and bug resolution. Streamlined the codebase and enhanced application performance, leveraging skills in React, Redux, JavaScript, and RESTful APIs.'
+        duration: 'Dec 2022 - Present',
+        project1: `+ Collaborated with the team to implement new frontend application for NSA
+            project, enhancing the application's capabilities and user experience. Integrated charts like line, bar,
+            scatter using react-chartjs-2 and used Sankey chart from google-charts.`,
+        project2: `+ Collaborated with the team to implement new functionalities in the AccelRx
+        project, enhancing the application's capabilities and user experience.`
     },
     {
         title: 'Senior Analyst',
         company: 'Capgemini',
-        duration: 'January 2020 - June 2020',
-        description: 'Drove front-end development for the AccelRx project. Enhanced user interface and experience, ensuring high-quality code and design integration. Played a pivotal role in feature development and bug fixes, focusing on React and Redux.'
+        duration: 'July 2021 - June 2022',
+        project1: `+ Collaborated with the team on the development of new functionalities for
+        the NAAS system and the Control-M dashboard. This included creating widget-based React
+        components to enhance the modularity and reusability within Cisco's applications.`
     },
     {
-        title: 'Software Engineer',
+        title: 'Frontend Developer',
         company: 'Infomania Technology Solutions',
-        duration: 'June 2017 - January 2020',
-        description: 'Initiated into professional software development, focusing on front-end technologies. Contributed significantly to the P&G project, honing skills in React, JavaScript, and collaborative development tools.'
-    },
-    // ... add more experiences here if needed
+        duration: 'June 2019 - May 2021',
+        project1: `+ Initiated my professional journey at Infomania Technology Solutions, acquiring
+        essential skills in React and frontend development. This foundational phase was enriched through my
+        involvement in developing EduSphere.`
+    }
 ];
+
 
 const Experience = () => {
     return (
@@ -38,7 +46,7 @@ const Experience = () => {
                     <Grid item xs={12} key={index}>
                         <Paper elevation={6} sx={{ bgcolor: '#052c50', p: 3 }}>
                             <Grid container>
-                                <Grid item xs={12} md={3} sx={{ bgcolor: '#0788ff', p: 2 }}>
+                                <Grid item xs={12} md={3} sx={{ bgcolor: 'rgba(0, 51, 102, 0.85)', p: 2 }}>
                                     <Typography variant="h6" sx={{ color: 'white' }}>{experience.title}</Typography>
                                     <Typography variant="subtitle1" sx={{ color: 'white' }}>{experience.company}</Typography>
                                     <Typography variant="subtitle2" sx={{ color: 'white', mb: 1 }}>{experience.duration}</Typography>
@@ -48,7 +56,9 @@ const Experience = () => {
                                 </Grid>
                                 <Grid item xs={12} md={9} sx={{ pl: 2 }}>
                                     <Typography variant="subtitle1" gutterBottom sx={{ color: 'white',fontSize: '1.6rem' }}>About Company</Typography>
-                                    <Typography variant="body2" sx={{ color: 'white', fontSize: '1rem' }}>{experience.description}</Typography>
+                                    <Typography variant="body2" sx={{ color: 'white', fontSize: '1rem' }}>{experience.project1}</Typography>
+                                    <Typography variant="body2" sx={{ color: 'white', fontSize: '1rem' }}>{experience.project2}</Typography>
+
                                 </Grid>
                             </Grid>
                         </Paper>

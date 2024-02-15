@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Typography, Grid, Button } from '@mui/material';
+import Profile from '../assets/profile.png'
 
 const AboutMe = () => {
     return (
@@ -15,7 +16,7 @@ const AboutMe = () => {
                             height: 'auto',
                         }}
                         alt="Shrayank"
-                        src="https://shrayank-portfolio.netlify.app/images/avatar.png"
+                        src={Profile}
                     />
                 </Grid>
                 <Grid item xs={12} md={6} sx={{ p: 3 }}>
@@ -27,7 +28,9 @@ const AboutMe = () => {
                     </Typography>
                     <Typography variant="body1" paragraph>
                         {/* Update this paragraph with information from your resume */}
-                        Passionate Frontend Developer with 4+ years of experience in building and maintaining responsive websites. Proficient in HTML, CSS, JavaScript; plus modern libraries and frameworks like React.js and Redux.
+                        Skilled Frontend React Developer with nearly 4 years of hands-on experience in designing and enhancing
+                        interactive web applications. Demonstrated expertise across sectors like healthcare and e-commerce. Skilled in
+                        collaborating with diverse teams, navigating complex projects, and adapting to changing requirements.
                     </Typography>
                     {/* Add more paragraphs as needed based on your resume */}
                     
