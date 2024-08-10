@@ -1,137 +1,224 @@
-import React from 'react';
-import { Box, Typography, Button, Grid, Card,IconButton, CardContent, CardActions, CardMedia, Dialog, DialogContent } from '@mui/material';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LanguageIcon from '@mui/icons-material/Language';
-import ArticleIcon from '@mui/icons-material/Article'; 
-import Project1 from '../assets/Projects/Project1/Project1.png';
-import Project2 from '../assets/Projects/Project2/Project2.png';  
-import Project3 from '../assets/Projects/Project3/Project3.png';  
-import Project4 from '../assets/Projects/Project4/Project4.png';
-
+import React, { useState } from "react";
+import { FaGithub, FaGlobe, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const projects = [
-    {
-      title: 'Portfolio Website',
-      description: 'A personal portfolio website to showcase development projects and skills.',
-      image: Project1,
-      githubUrl: 'https://github.com/hrshrayank/hrshrayank-portfolio',
-      liveDemoUrl: 'https://shrayank.com/',
-      blogUrl: '#', 
-      skills: [
-        { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-        { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-        { name: 'HTML5', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-        { name: 'CSS3', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-        { name: 'Material-UI', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg' },
-      ],
-    },
-    {
-      title: 'Global Dock',
-      description: 'Global Dock is a export import company website.',
-      image: Project2,
-      githubUrl: 'https://github.com/hrshrayank/Global-Dock',
-      liveDemoUrl: 'https://globaldock.netlify.app/',
-      blogUrl: '#', 
-      skills: [
-        { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-        { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-        { name: 'HTML5', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-        { name: 'CSS3', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-        { name: 'Material-UI', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg' },
-      ],
-    },
-    {
-      title: 'Boat Website',
-      description: `Boat is India's Audio Company website.`,
-      image: Project3,
-      githubUrl: 'https://github.com/hrshrayank/Boat-Clone',
-      liveDemoUrl: 'https://boat-clone.vercel.app/',
-      blogUrl: 'https://hrshrayank.medium.com/boat-clone-collab-project-in-3-days-aeea867a87e7', 
-      skills: [
-        { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-        { name: 'HTML5', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-        { name: 'CSS3', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-      ],
-    },
-    {
-      title: 'CNN News Clone',
-      description: 'CNN is International news website.We have tried implementing searching of news ,images change on the click and filtering,changing languages .',
-      image: Project4,
-      githubUrl: 'https://github.com/MaheshFSD/ethane',
-      liveDemoUrl: 'https://cnn-clone-web.netlify.app/',
-      blogUrl: '#', 
-      skills: [
-        { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-        { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-        { name: 'Redux', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg' },
-        { name: 'HTML5', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
-        { name: 'CSS3', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-        { name: 'Material-UI', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg' },
-      ],
-    }
-  ];
-  const Project = () => {
-    return (
-      <Box sx={{ bgcolor: '#051e37', color: 'white', py: 8, px: 4, overflowX: 'auto' }}>
-        <Typography variant="subtitle1" gutterBottom align="center" sx={{ bgcolor: '#063d70', display: 'inline-block', px: 2 }}>
-          MY WORK
-        </Typography>
-        <Typography variant="h3" gutterBottom sx={{ color: 'white', mt: 2, mb: 4 }}>
-          <Box component="span" sx={{ color: 'white' }}>RECENT </Box>
-          <Box component="span" sx={{ color: '#0788ff', px: 1 }}>PROJECTS</Box>
-        </Typography>
-        <Grid container spacing={4} sx={{ justifyContent: 'start',pr: 2  }}>
-          {projects.map((project, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
-              <Card sx={{ bgcolor: 'white', height: '100%', display: 'inline-block', minWidth: '300px' }}>
-                <CardMedia
-                  component="img"
-                  image={project.image}
-                  alt={project.title}
-                  sx={{ maxHeight: 200, objectFit: 'cover' }}
-                />
-                <CardContent>
-                  <Typography variant="h5" component="div" gutterBottom sx={{ textAlign: 'center' }}>
-                    {project.title}
-                  </Typography>
-                  <Typography variant="body2">
-                    {project.description}
-                  </Typography>
-                  <Box sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 2, mt: 2 }}>
-                    {project.skills.map((skill, skillIndex) => (
-                      <img key={skillIndex} src={skill.logo} alt={skill.name} style={{ height: '25px' }} />
-                    ))}
-                  </Box>
-                </CardContent>
-                <CardActions disableSpacing sx={{ justifyContent: 'center', paddingBottom: 2 }}>
-                  <Button href={project.githubUrl} target="_blank" startIcon={<GitHubIcon />} sx={{ color: 'black', '&:hover': { backgroundColor: 'white' } }}>
-                    GitHub
-                  </Button>
-                  <Button href={project.liveDemoUrl} target="_blank" startIcon={<LanguageIcon />} sx={{ color: 'black', '&:hover': { backgroundColor: 'white' } }}>
-                    Website
-                  </Button>
-                  <Button href={project.blogUrl} target="_blank" startIcon={<ArticleIcon />} sx={{ color: 'black', '&:hover': { backgroundColor: 'white' } }}>
-                    Blog
-                  </Button>
-                </CardActions>
-              </Card>
-            </Grid>
-          ))}
-         <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center' }}>
-          <Button
-            href="https://github.com/hrshrayank"
-            target="_blank"
-            variant="contained"
-            sx={{ color: 'white', backgroundColor:'#063d70', '&:hover': { backgroundColor: '#063d70' } }}
-            startIcon={<GitHubIcon />}
-          >
-            See More
-          </Button>
-        </Grid>
-              
-        </Grid>
-      </Box>
+  {
+    title: "Trip Planner",
+    description:
+      "The Trip Planner Website is an intuitive web application designed to streamline travel planning. Leveraging technologies like Google Places API, Google Gemini, Google OAuth, and Firebase, it allows users to create, manage, and share their travel itineraries with ease.",
+    images: [
+      "https://s3-inventorymanagement1.s3.ap-south-1.amazonaws.com/trip-planner/tripplanner-1.png",
+      "https://s3-inventorymanagement1.s3.ap-south-1.amazonaws.com/trip-planner/tripplanner-2.png",
+      "https://s3-inventorymanagement1.s3.ap-south-1.amazonaws.com/trip-planner/tripplanner-3.png",
+    ],
+    githubUrl: "https://github.com/hrshrayank/trip-planner-website",
+    liveDemoUrl: "https://trip-planner-website-seven.vercel.app/",
+    skills: [
+      {
+        name: "JavaScript",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+      },
+      {
+        name: "React",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+      },
+      {
+        name: "Tailwind CSS",
+        logo: "https://s3-inventorymanagement1.s3.ap-south-1.amazonaws.com/tailwind-css.png",
+      },
+      {
+        name: "Firebase",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+      },
+      {
+        name: "Gemini",
+        logo: "https://s3-inventorymanagement1.s3.ap-south-1.amazonaws.com/Gemini.png",
+      },
+    ],
+  },
+  {
+    title: "Blogging Website",
+    description:
+      "A full-stack blogging platform built with modern technologies. The backend, written in TypeScript, utilizes Prisma and is hosted on Cloudflare. The common package leverages Zod for validation shared across the frontend and backend. The frontend is powered by Vite and Typescipt, providing a fast and responsive user interface.",
+    images: [
+      "https://s3-inventorymanagement1.s3.ap-south-1.amazonaws.com/blogging/blogging-1.png",
+      "https://s3-inventorymanagement1.s3.ap-south-1.amazonaws.com/blogging/blogging-2.png",
+      "https://s3-inventorymanagement1.s3.ap-south-1.amazonaws.com/blogging/blogging-3.png",
+    ],
+    githubUrl: "https://github.com/hrshrayank/blogging-website",
+    liveDemoUrl: "https://blogging-website-two-rho.vercel.app",
+    skills: [
+      {
+        name: "TypeScript",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+      },
+      {
+        name: "React",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+      },
+      {
+        name: "Tailwind CSS",
+        logo: "https://s3-inventorymanagement1.s3.ap-south-1.amazonaws.com/tailwind-css.png",
+      },
+      {
+        name: "Prisma",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg",
+      },
+      {
+        name: "Hono",
+        logo: "https://s3-inventorymanagement1.s3.ap-south-1.amazonaws.com/hono-title.png",
+      },
+    ],
+  },
+  {
+    title: "Inventory Management",
+    description:
+      "A static website with a full-stack approach. The backend, hosted on AWS EC2, manages data with Express.js and Prisma. The frontend, built with React and Tailwind CSS, is hosted on AWS Amplify. This project efficiently handles inventory management with a responsive interface and seamless AWS integration.",
+
+    images: [
+      "https://s3-inventorymanagement1.s3.ap-south-1.amazonaws.com/inventory/inventory-1.png",
+      "https://s3-inventorymanagement1.s3.ap-south-1.amazonaws.com/inventory/inventory-2.png",
+      "https://s3-inventorymanagement1.s3.ap-south-1.amazonaws.com/inventory/inventory-3.png",
+    ],
+    githubUrl: "https://github.com/hrshrayank/inventory-management",
+    liveDemoUrl: "https://main.d3639njs234cyu.amplifyapp.com/",
+    skills: [
+      {
+        name: "TypeScript",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+      },
+      {
+        name: "React",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+      },
+      {
+        name: "Tailwind CSS",
+        logo: "https://s3-inventorymanagement1.s3.ap-south-1.amazonaws.com/tailwind-css.png",
+      },
+      {
+        name: "Prisma",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg",
+      },
+      {
+        name: "Express.js",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+      },
+      {
+        name: "AWS",
+        logo: "https://s3-inventorymanagement1.s3.ap-south-1.amazonaws.com/aws.png",
+      },
+    ],
+  },
+];
+
+const Project = () => {
+  const [currentImageIndexes, setCurrentImageIndexes] = useState(
+    projects.map(() => 0)
+  );
+
+  const handleNextImage = (index, images) => {
+    setCurrentImageIndexes((prevIndexes) =>
+      prevIndexes.map((imgIndex, i) =>
+        i === index ? (imgIndex + 1) % images.length : imgIndex
+      )
     );
   };
+
+  const handlePrevImage = (index, images) => {
+    setCurrentImageIndexes((prevIndexes) =>
+      prevIndexes.map((imgIndex, i) =>
+        i === index
+          ? imgIndex === 0
+            ? images.length - 1
+            : imgIndex - 1
+          : imgIndex
+      )
+    );
+  };
+
+  return (
+    <div className="bg-gray-900 text-white py-16 px-10">
+      <div className="text-left mb-12">
+        <h3 className="inline-block bg-blue-800 px-4 py-1 text-sm font-semibold tracking-wide uppercase">
+          My Work
+        </h3>
+        <h2 className="text-4xl mt-4">
+          <span className="text-white">Recent</span>{" "}
+          <span className="text-blue-500">Projects</span>
+        </h2>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            className="bg-white text-gray-900 rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105"
+          >
+            <div className="relative">
+              <img
+                src={project.images[currentImageIndexes[index]]}
+                alt={project.title}
+                className="w-full h-48 object-cover"
+              />
+              <button
+                onClick={() => handlePrevImage(index, project.images)}
+                className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full"
+              >
+                <FaArrowLeft />
+              </button>
+              <button
+                onClick={() => handleNextImage(index, project.images)}
+                className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full"
+              >
+                <FaArrowRight />
+              </button>
+            </div>
+            <div className="p-6">
+              <h3 className="text-2xl font-semibold mb-3">{project.title}</h3>
+              <p className="text-sm mb-4">{project.description}</p>
+              <div className="flex flex-wrap justify-center mb-4">
+                {project.skills.map((skill, skillIndex) => (
+                  <img
+                    key={skillIndex}
+                    src={skill.logo}
+                    alt={skill.name}
+                    className="h-8 mx-2"
+                  />
+                ))}
+              </div>
+              <div className="flex justify-center space-x-4 border-t pt-3 border-slate-300">
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-black hover:text-blue-500"
+                >
+                  <FaGithub size={24} />
+                </a>
+                <a
+                  href={project.liveDemoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-black hover:text-blue-500"
+                >
+                  <FaGlobe size={24} />
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="flex justify-center mt-12">
+        <a
+          href="https://github.com/hrshrayank"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-blue-800 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition"
+        >
+          See More on GitHub
+        </a>
+      </div>
+    </div>
+  );
+};
 
 export default Project;

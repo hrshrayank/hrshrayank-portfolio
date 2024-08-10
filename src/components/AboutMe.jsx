@@ -1,62 +1,48 @@
-import React from 'react';
-import { Box, Typography, Grid, Button } from '@mui/material';
-import Profile from '../assets/profile.png'
+import React from "react";
+import Profile from "../assets/profile.png";
 
 const AboutMe = () => {
-    return (
-        <Box sx={{ bgcolor: '#06223a', color: 'white', py: 8, px: 4 }}>
-            <Grid container spacing={3}>
-                <Grid item xs={12} md={6} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Box
-                        component="img"
-                        sx={{
-                            borderRadius: '50%',
-                            width: '100%',
-                            maxWidth: 300,
-                            height: 'auto',
-                        }}
-                        alt="Shrayank"
-                        src={Profile}
-                    />
-                </Grid>
-                <Grid item xs={12} md={6} sx={{ p: 3 }}>
-                    <Typography variant="h5" gutterBottom sx={{ color: '#0788ff' }}>
-                        ABOUT ME
-                    </Typography>
-                    <Typography variant="h3" gutterBottom sx={{ color: 'white', mb: 4 }}>
-                        FRONTEND DEVELOPER
-                    </Typography>
-                    <Typography variant="body1" paragraph>
-                        {/* Update this paragraph with information from your resume */}
-                        Skilled Frontend React Developer with nearly 4 years of hands-on experience in designing and enhancing
-                        interactive web applications. Demonstrated expertise across sectors like healthcare and e-commerce. Skilled in
-                        collaborating with diverse teams, navigating complex projects, and adapting to changing requirements.
-                    </Typography>
-                    {/* Add more paragraphs as needed based on your resume */}
-                    
-                    <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4, flexWrap: 'no-wrap', gap: 2 }}>
-    <Button 
-      variant="contained" 
-      sx={{ bgcolor: '#0788ff',fontSize: { xs: '0.7rem', sm: '0.875rem', md: '0.8rem' },  }}
-      href="https://drive.google.com/file/d/1GfrnsHZadG_UOJ7TNEvdWgtveENU-NB4/view?usp=drive_link" 
-      target="_blank" 
-      rel="noopener noreferrer"
-    >
-      View Resume
-    </Button>
-    <Button 
-      variant="contained" 
-      sx={{ bgcolor: '#0788ff',fontSize: { xs: '0.7rem', sm: '0.875rem', md: '0.8rem' },  }}
-      href="https://drive.google.com/uc?export=download&id=1GfrnsHZadG_UOJ7TNEvdWgtveENU-NB4" 
-      download="H_R_Shrayank_Resume.pdf"
-    >
-      Download Resume
-    </Button>
-  </Box>
-                </Grid>
-            </Grid>
-        </Box>
-    );
+  return (
+    <div className="bg-gray-900 text-white py-16 px-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="flex justify-center items-center">
+          <img
+            src={Profile}
+            alt="Shrayank"
+            className="rounded-full w-full max-w-xs"
+          />
+        </div>
+        <div className="flex flex-col justify-center">
+          <h5 className="text-blue-500 text-lg mb-4">ABOUT ME</h5>
+          <h3 className="text-4xl font-bold mb-6">WEB DEVELOPER</h3>
+          <p className="text-base leading-relaxed mb-6">
+            Skilled Web Developer with nearly 4 years of hands-on experience in
+            designing and enhancing interactive web applications. Demonstrated
+            expertise across sectors like healthcare and e-commerce. Skilled in
+            collaborating with diverse teams, navigating complex projects, and
+            adapting to changing requirements.
+          </p>
+          <div className="flex justify-center md:justify-start space-x-4">
+            <a
+              href="https://drive.google.com/file/d/1GfrnsHZadG_UOJ7TNEvdWgtveENU-NB4/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-500 text-white text-sm font-medium py-2 px-4 rounded-lg hover:bg-blue-600 transition"
+            >
+              View Resume
+            </a>
+            <a
+              href="https://drive.google.com/uc?export=download&id=1GfrnsHZadG_UOJ7TNEvdWgtveENU-NB4"
+              download="H_R_Shrayank_Resume.pdf"
+              className="bg-blue-500 text-white text-sm font-medium py-2 px-4 rounded-lg hover:bg-blue-600 transition"
+            >
+              Download Resume
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default AboutMe;

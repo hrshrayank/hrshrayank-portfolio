@@ -1,12 +1,6 @@
-// ContactMe.jsx
 import React, { useState } from 'react';
-import { Box, Typography, TextField, Button, Grid, Container, IconButton, Link, Snackbar, Alert } from '@mui/material';
-import EmailIcon from '@mui/icons-material/Email';
-import PhoneIcon from '@mui/icons-material/Phone';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import EventAvailableIcon from '@mui/icons-material/EventAvailable';
+import { FaTwitter, FaLinkedin, FaGithub, FaEnvelope, FaPhoneAlt, FaCalendarAlt } from 'react-icons/fa';
+import { Snackbar, Alert } from '@mui/material';
 
 const ContactMe = () => {
     const [form, setForm] = useState({
@@ -26,7 +20,6 @@ const ContactMe = () => {
             [name]: value,
         });
     };
-    
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -60,19 +53,6 @@ const ContactMe = () => {
         setOpenSnackbar(true);
     };
 
-    const textFieldStyles = {
-        '& label.Mui-focused': {
-            color: 'white',
-        },
-        '& label': {
-            color: 'white',
-        },
-        '& .MuiOutlinedInput-root': {
-            color: 'white',
-            backgroundColor: '#576c7b',
-        },
-    };
-
     const openPopupWidget = () => {
         const link = 'https://calendly.com/hrshrayank77/career-opportunities-with-shrayank';
         window.open(link, 'Calendly', 'width=800,height=600');
@@ -83,142 +63,123 @@ const ContactMe = () => {
     };
 
     return (
-        <Box sx={{ bgcolor: '#051b30', color: 'white', py: 8, px:4 }}>
-                <Typography variant="subtitle1" gutterBottom align="center" sx={{ bgcolor: '#063d70', display: 'inline-block', px: 2 }}>
-                    CONTACT
-                </Typography>
-                <Typography variant="h3" gutterBottom sx={{ color: 'white', mt: 2, mb: 4}}>
-                    <Box component="span" sx={{ color: 'white' }}>CONTACT </Box>
-                    <Box component="span" sx={{ color: '#0788ff', px: 1 }}>ME</Box>
-                </Typography>
-            <Container maxWidth="lg" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <Grid container spacing={4} alignItems="center" justifyContent="center" sx={{ bgcolor: '#05335c', p: 4, borderRadius: '16px' }}>
-                    <Grid item xs={12} md={4}>
-                    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mb: 4 }}>
-                            <Button 
-                                variant="contained" 
-                                color="primary" 
-                                startIcon={<EventAvailableIcon />}
-                                onClick={openPopupWidget} // Open Calendly in a new window
-                                sx={{ 
-                                    mb: 2,
-                                    backgroundColor: '#0788ff', 
-                                    '&:hover': { backgroundColor: '#0568cc' } 
-                                }}
+        <div className="bg-gray-900 text-white py-16 px-10">
+            <div className="text-left mb-12">
+                <h3 className="inline-block bg-blue-800 px-4 py-1 text-sm font-semibold tracking-wide uppercase">
+                    Contact
+                </h3>
+                <h2 className="text-4xl mt-4">
+                    <span className="text-white">Contact</span>{" "}
+                    <span className="text-blue-500">Me</span>
+                </h2>
+            </div>
+            <div className="max-w-6xl  bg-gray-800 p-8 rounded-lg shadow-lg">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="flex flex-col items-center md:items-start text-center md:text-left">
+                        <button
+                            onClick={openPopupWidget}
+                            className="bg-blue-600 text-white py-2 px-4 rounded-full mb-6 flex items-center space-x-2 hover:bg-blue-700 transition"
+                        >
+                            <FaCalendarAlt />
+                            <span>Schedule a Meeting</span>
+                        </button>
+                        <div className="flex space-x-4 mb-4">
+                            <a href="https://twitter.com/hrshrayank77" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-500">
+                                <FaTwitter size={28} />
+                            </a>
+                            <a href="https://github.com/hrshrayank" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-500">
+                                <FaGithub size={28} />
+                            </a>
+                            <a href="https://in.linkedin.com/in/hrshrayank" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-500">
+                                <FaLinkedin size={28} />
+                            </a>
+                        </div>
+                        <div className="flex items-center justify-center md:justify-start mb-2">
+                            <FaEnvelope className="mr-2" />
+                            <p>hrshrayank77@gmail.com</p>
+                        </div>
+                        <div className="flex items-center justify-center md:justify-start">
+                            <FaPhoneAlt className="mr-2" />
+                            <p>+91 9008156702</p>
+                        </div>
+                    </div>
+                    <div className="col-span-2">
+                        <form onSubmit={handleSubmit}>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-2" htmlFor="name">
+                                        Your Name
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="name"
+                                        value={form.name}
+                                        onChange={handleInputChange}
+                                        required
+                                        className="w-full px-3 py-2 bg-gray-700 text-white rounded-lg border border-gray-600 focus:outline-none focus:border-blue-500"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-2" htmlFor="email">
+                                        Your Email
+                                    </label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        value={form.email}
+                                        onChange={handleInputChange}
+                                        required
+                                        className="w-full px-3 py-2 bg-gray-700 text-white rounded-lg border border-gray-600 focus:outline-none focus:border-blue-500"
+                                    />
+                                </div>
+                            </div>
+                            <div className="mt-4">
+                                <label className="block text-sm font-medium mb-2" htmlFor="subject">
+                                    Subject
+                                </label>
+                                <input
+                                    type="text"
+                                    id="subject"
+                                    name="subject"
+                                    value={form.subject}
+                                    onChange={handleInputChange}
+                                    required
+                                    className="w-full px-3 py-2 bg-gray-700 text-white rounded-lg border border-gray-600 focus:outline-none focus:border-blue-500"
+                                />
+                            </div>
+                            <div className="mt-4">
+                                <label className="block text-sm font-medium mb-2" htmlFor="message">
+                                    Your Message
+                                </label>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    value={form.message}
+                                    onChange={handleInputChange}
+                                    required
+                                    rows={4}
+                                    className="w-full px-3 py-2 bg-gray-700 text-white rounded-lg border border-gray-600 focus:outline-none focus:border-blue-500"
+                                ></textarea>
+                            </div>
+                            <button
+                                type="submit"
+                                className="w-full bg-blue-600 text-white py-2 px-4 rounded-full mt-6 hover:bg-blue-700 transition"
                             >
-                                Schedule a Meeting
-                            </Button>
-                        </Box>
-                        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                            <Box sx={{ display: 'flex', '& > *': { m: 1 } }}>
-                                
-                                <Link href="https://twitter.com/hrshrayank77" target="_blank" rel="noopener noreferrer" color="inherit" underline="none">
-                                    <IconButton aria-label="twitter" sx={{ color: 'white' }}>
-                                        <TwitterIcon />
-                                    </IconButton>
-                                </Link>
-
-                                <Link href="https://github.com/hrshrayank" target="_blank" rel="noopener noreferrer" color="inherit" underline="none">
-                                    <IconButton aria-label="github" sx={{ color: 'white' }}>
-                                        <GitHubIcon />
-                                    </IconButton>
-                                </Link>
-
-                                <Link href="https://in.linkedin.com/in/hrshrayank" target="_blank" rel="noopener noreferrer" color="inherit" underline="none">
-                                    <IconButton aria-label="linkedin" sx={{ color: 'white' }}>
-                                        <LinkedInIcon />
-                                    </IconButton>
-                                </Link>
-                            </Box>
-                            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mt: 2 }}>
-                                <EmailIcon sx={{ mr: 1, verticalAlign: 'middle' }} />
-                                <Typography variant="subtitle1">hrshrayank77@gmail.com</Typography>
-                            </Box>
-                            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mt: 2 }}>
-                                <PhoneIcon sx={{ mr: 1, verticalAlign: 'middle' }} />
-                                <Typography variant="subtitle1">+91 9008156702</Typography>
-                            </Box>
-
-                        </Box>
-                    </Grid>
-                    <Grid item xs={12} md={8}>
-                    <form onSubmit={handleSubmit}>
-                        <Grid container spacing={2}>
-                            <Grid item xs={12} sm={6}>
-                                <TextField 
-                                    label="Your Name" 
-                                    variant="outlined" 
-                                    fullWidth 
-                                    required 
-                                    name="name" 
-                                    value={form.name} 
-                                    onChange={handleInputChange} 
-                                    sx={textFieldStyles} 
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
-                                <TextField 
-                                    label="Your Email" 
-                                    variant="outlined" 
-                                    fullWidth 
-                                    required 
-                                    type="email" 
-                                    name="email" 
-                                    value={form.email} 
-                                    onChange={handleInputChange} 
-                                    sx={textFieldStyles} 
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField 
-                                    label="Subject" 
-                                    variant="outlined" 
-                                    fullWidth 
-                                    required 
-                                    name="subject" 
-                                    value={form.subject} 
-                                    onChange={handleInputChange} 
-                                    sx={textFieldStyles} 
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField 
-                                    label="Your Message" 
-                                    variant="outlined" 
-                                    fullWidth 
-                                    required 
-                                    multiline 
-                                    rows={4} 
-                                    name="message" 
-                                    value={form.message} 
-                                    onChange={handleInputChange} 
-                                    sx={textFieldStyles} 
-                                />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <Button 
-                                    type="submit" 
-                                    variant="contained" 
-                                    fullWidth 
-                                    sx={{ backgroundColor: 'white', color: '#051b30', '&:hover': { backgroundColor: 'white', opacity: '0.8' } }}
-                                >
-                                    Send Message
-                                </Button>
-                            </Grid>
-                        </Grid>
-                    </form>
-
-                    </Grid>
-                </Grid>
-            </Container>
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
             <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar}>
                 <Alert onClose={handleCloseSnackbar} severity={snackbarSeverity} sx={{ width: '100%' }}>
                     {snackbarMessage}
                 </Alert>
             </Snackbar>
-        </Box>
+        </div>
     );
-    
 };
 
 export default ContactMe;

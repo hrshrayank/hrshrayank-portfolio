@@ -1,10 +1,7 @@
 import React from 'react';
 import { Fab, Action } from 'react-tiny-fab';
 import 'react-tiny-fab/dist/styles.css';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import EmailIcon from '@mui/icons-material/Email';
-import ChatIcon from '@mui/icons-material/Chat';
+import { FaWhatsapp, FaLinkedin, FaEnvelope, FaCommentDots } from 'react-icons/fa';
 
 const ActionMenu = () => {
   const handleAction = (url, isWhatsApp = false) => {
@@ -16,31 +13,31 @@ const ActionMenu = () => {
   };
 
   return (
-      <Fab
-        mainButtonStyles={{ backgroundColor: '#25D366' }}
-        position={{ bottom: 20, right: 20 }}
-        icon={<ChatIcon style={{ color: 'white' }} />}
-      >
-     <Action
+    <Fab
+      mainButtonStyles={{ backgroundColor: '#25D366' }}
+      position={{ bottom: 20, right: 20 }}
+      icon={<FaCommentDots style={{ color: 'white' }} />}
+    >
+      <Action
         style={{ backgroundColor: '#25D366' }}
         text="WhatsApp"
         onClick={() => handleAction('YourWhatsAppLinkHere', true)}
       >
-        <WhatsAppIcon style={{ color: 'white' }} />
+        <FaWhatsapp style={{ color: 'white' }} />
       </Action>
       <Action
         style={{ backgroundColor: '#0e76a8' }}
         text="LinkedIn"
         onClick={() => handleAction('https://in.linkedin.com/in/hrshrayank')}
       >
-        <LinkedInIcon style={{ color: 'white' }} />
+        <FaLinkedin style={{ color: 'white' }} />
       </Action>
       <Action
         style={{ backgroundColor: '#c71610' }}
         text="Email"
         onClick={() => handleAction('mailto:hrshrayank77@gmail.com')}
       >
-        <EmailIcon style={{ color: 'white' }} />
+        <FaEnvelope style={{ color: 'white' }} />
       </Action>
     </Fab>
   );

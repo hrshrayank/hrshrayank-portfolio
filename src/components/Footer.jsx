@@ -1,13 +1,12 @@
 import React from 'react';
-import { Box, Typography, Link } from '@mui/material';
 
 const Footer = () => {
     return (
-        <Box sx={{ bgcolor: '#051b30', color: 'white', p: 3, textAlign: 'center', borderTop: '1px solid white' }}>
-            <Typography variant="body2" color="inherit">
+        <div className="bg-gray-900 text-white py-4 text-center border-t border-white">
+            <p className="text-sm">
                 © {new Date().getFullYear()} Shrayank. All rights reserved.
-            </Typography>
-        </Box>
+            </p>
+        </div>
     );
 };
 
