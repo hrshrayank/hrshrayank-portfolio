@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, IconButton, Button, useMediaQuery, useTheme, Drawer, List, ListItem, ListItemText } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
 import { Link as ScrollLink } from 'react-scroll';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const Navbar = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
 
@@ -28,81 +25,65 @@ const Navbar = () => {
   ];
 
   const drawer = (
-    <List>
+    <div className="flex flex-col items-center space-y-4">
       {navLinks.map((item, index) => (
-        <ListItem button key={index} onClick={handleDrawerToggle}>
-          <ScrollLink
-            to={item.path}
-            smooth={true}
-            duration={500}
-            offset={-70}
-            style={{ textDecoration: 'none', color: 'inherit', width: '100%' }}
-          >
-            <ListItemText primary={item.title} />
-          </ScrollLink>
-        </ListItem>
+        <ScrollLink
+          key={index}
+          to={item.path}
+          smooth={true}
+          duration={500}
+          offset={-70}
+          onClick={() => handleNavigation(item.title)}
+          className="w-full text-center py-2 text-white hover:bg-gray-700 transition duration-300"
+        >
+          {item.title}
+        </ScrollLink>
       ))}
-    </List>
+    </div>
   );
 
   return (
-    <AppBar position="fixed" style={{ background: '#000', boxShadow: 'none' }}>
-      <Toolbar>
-        {isMobile ? (
-          <>
-            <IconButton
-              color="inherit"
-              edge="start"
-              onClick={handleDrawerToggle}
-              aria-label="menu"
+    <nav className="fixed top-0 left-0 w-full bg-black shadow-none z-50">
+      <div className="container mx-auto flex items-center justify-between px-4 cursor-pointer">
+        <ScrollLink
+          to="home"
+          smooth={true}
+          duration={500}
+          offset={-70}
+          className="text-white"
+        >
+          <img src="https://i.ibb.co/Kqms1vK/logo.jpg" alt="Logo" className="h-16" />
+        </ScrollLink>
+        <div className="hidden md:flex items-center space-x-2">
+          {navLinks.map((item, index) => (
+            <ScrollLink
+              key={index}
+              to={item.path}
+              smooth={true}
+              duration={500}
+              offset={-70}
+              onClick={() => handleNavigation(item.title)}
+              className={`${
+                activeSection === item.title ? 'border-b-2 border-white' : ''
+              } text-white transition duration-300 px-3`}
             >
-              <MenuIcon />
-            </IconButton>
-            <Drawer
-              anchor='left'
-              open={mobileOpen}
-              onClose={handleDrawerToggle}
-              ModalProps={{
-                keepMounted: true, // Better open performance on mobile.
-              }}
-            >
-              {drawer}
-            </Drawer>
-          </>
-        ) : (
-          <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-            <ScrollLink to="home" smooth={true} duration={500} offset={-70} style={{ textDecoration: 'none', color: 'inherit' }}>
-              <img src="https://i.ibb.co/Kqms1vK/logo.jpg" alt="Logo" style={{ maxHeight: '64px' }} />
+              {item.title}
             </ScrollLink>
-            <div style={{ display: 'flex', gap: '8px' }}>
-              {navLinks.map((item, index) => (
-                <Button 
-                  color="inherit" 
-                  key={index} 
-                  onClick={() => handleNavigation(item.title)}
-                  sx={{
-                    borderBottom: activeSection === item.title ? '3px solid white' : 'none',
-                    transition: 'border-bottom 0.3s',
-                    padding: '6px 8px', 
-                  }}
-                >
-                  <ScrollLink
-                    to={item.path}
-                    smooth={true}
-                    duration={500}
-                    offset={-70}
-                    style={{ textDecoration: 'none', color: 'inherit' }}
-                  >
-                    {item.title}
-                  </ScrollLink>
-                </Button>
-              ))}
-            </div>
-          </div>
-        )}
-      </Toolbar>
-    </AppBar>
+          ))}
+        </div>
+        <div className="md:hidden">
+          <button onClick={handleDrawerToggle} className="text-white">
+            <MenuIcon />
+          </button>
+        </div>
+      </div>
+      {mobileOpen && (
+        <div className="md:hidden bg-black text-white p-4">
+          {drawer}
+        </div>
+      )}
+    </nav>
   );
-}
+};
 
 export default Navbar;

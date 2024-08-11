@@ -59,10 +59,10 @@ const deploymentSkills = [
     name: "CI/CD",
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",  // Using GitHub logo as a placeholder for CI/CD
   },
-  {
-    name: "Kubernetes",
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg",
-  },
+  // {
+  //   name: "Kubernetes",
+  //   logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg",
+  // },
 ];
 
 const Skills = () => {

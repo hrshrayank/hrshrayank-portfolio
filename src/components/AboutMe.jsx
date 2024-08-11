@@ -16,7 +16,7 @@ const AboutMe = () => {
           <h5 className="text-blue-500 text-lg mb-4">ABOUT ME</h5>
           <h3 className="text-4xl font-bold mb-6">WEB DEVELOPER</h3>
           <p className="text-base leading-relaxed mb-6">
-            Skilled Web Developer with nearly 4 years of hands-on experience in
+            Skilled Web Developer with over 4 years of hands-on experience in
             designing and enhancing interactive web applications. Demonstrated
             expertise across sectors like healthcare and e-commerce. Skilled in
             collaborating with diverse teams, navigating complex projects, and
